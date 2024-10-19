@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,3 +19,11 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+
+Route::get('/',[PostController::class,'index']);
+Route::get('create',[PostController::class,'create']);
+Route::post('post',[PostController::class,'store']);
+Route::get('edit/{id}',[PostController::class,'edit']);
+Route::post('update/{id}',[PostController::class,'update']);
+Route::get('delete/{id}',[PostController::class,'destroy']);
